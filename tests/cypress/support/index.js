@@ -1,4 +1,4 @@
-// Copyright (C) 2020-2021 Intel Corporation
+// Copyright (C) 2020-2022 Intel Corporation
 //
 // SPDX-License-Identifier: MIT
 
@@ -9,8 +9,8 @@ require('./commands_canvas3d');
 require('./commands_filters_feature');
 require('./commands_models');
 require('./commands_opencv');
+require('./commands_organizations');
 require('@cypress/code-coverage/support');
-require('cypress-plugin-tab');
 
 before(() => {
     if (Cypress.browser.family !== 'chromium') {
@@ -27,4 +27,5 @@ Cypress.on('uncaught:exception', (err) => {
     if (err.message.includes(resizeObserverLoopErr)) {
         return false;
     }
+    return true;
 });
