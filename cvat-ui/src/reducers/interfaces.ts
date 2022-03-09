@@ -6,6 +6,7 @@ import { Canvas3d } from 'cvat-canvas3d/src/typescript/canvas3d';
 import { Canvas, RectDrawingMethod, CuboidDrawingMethod } from 'cvat-canvas-wrapper';
 import { IntelligentScissors } from 'utils/opencv-wrapper/intelligent-scissors';
 import { KeyMap } from 'utils/mousetrap-react';
+import { OpenCVTracker } from 'utils/opencv-wrapper/opencv-interfaces';
 
 export type StringObject = {
     [index: string]: string;
@@ -69,6 +70,7 @@ export interface TasksQuery {
     name: string | null;
     status: string | null;
     mode: string | null;
+    filter: string | null;
     projectId: number | null;
     [key: string]: string | number | null;
 }
@@ -80,10 +82,9 @@ export interface Task {
 
 export interface JobsQuery {
     page: number;
-    assignee: string | null;
-    stage: 'annotation' | 'validation' | 'acceptance' | null;
-    state: 'new' | 'in progress' | 'rejected' | 'completed' | null;
-    [index: string]: number | null | string | undefined;
+    sort: string | null;
+    search: string | null;
+    filter: string | null;
 }
 
 export interface JobsState {
@@ -158,7 +159,7 @@ export interface CloudStoragesQuery {
     owner: string | null;
     displayName: string | null;
     description: string | null;
-    resourceName: string | null;
+    resource: string | null;
     providerType: string | null;
     credentialsType: string | null;
     [key: string]: string | number | null | undefined;
@@ -284,7 +285,7 @@ export interface Model {
     };
 }
 
-export type OpenCVTool = IntelligentScissors;
+export type OpenCVTool = IntelligentScissors | OpenCVTracker;
 
 export interface ToolsBlockerState {
     algorithmsLocked?: boolean;
