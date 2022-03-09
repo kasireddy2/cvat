@@ -7,7 +7,7 @@
 [![ui pulls][docker-ui-pulls-img]][docker-ui-image-url]
 [![DOI][doi-img]][doi-url]
 
-CVAT is free, online, interactive video and image annotation
+CVAT is free, .online, interactive video and image annotation
 tool for computer vision. It is being used by our team to
 annotate million of objects with different properties. Many UI
 and UX decisions are based on feedbacks from professional data
