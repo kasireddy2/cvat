@@ -279,7 +279,7 @@ jobs:
             npx nyc report --reporter=text-lcov >> ${HOST_COVERAGE_DATA_DIR}/lcov.info
             docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.ci.yml run cvat_ci /bin/bash -c 'cd ${CONTAINER_COVERAGE_DATA_DIR} && coveralls-lcov -v -n lcov.info > ${CONTAINER_COVERAGE_DATA_DIR}/coverage.json'
             docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.ci.yml run cvat_ci /bin/bash -c 'ln -s ${CONTAINER_COVERAGE_DATA_DIR}/.git . && ln -s ${CONTAINER_COVERAGE_DATA_DIR}/.coverage . && ln -s ${CONTAINER_COVERAGE_DATA_DIR}/coverage.json . && coveralls --merge=coverage.json'
- Push_to_registry:
+  Push_to_registry:
     runs-on: ubuntu-latest
 #     needs: [Unit_testing, E2E_testing]
     steps:
@@ -314,3 +314,4 @@ jobs:
 #           docker tag "${DOCKERHUB_WORKSPACE}/${UI_IMAGE_REPO}:latest" "${DOCKERHUB_WORKSPACE}/${UI_IMAGE_REPO}:${{ github.event.release.tag_name }}"
 #           docker push "${DOCKERHUB_WORKSPACE}/${UI_IMAGE_REPO}:${{ github.event.release.tag_name }}"
 #           docker push "${DOCKERHUB_WORKSPACE}/${UI_IMAGE_REPO}:latest"
+ 
