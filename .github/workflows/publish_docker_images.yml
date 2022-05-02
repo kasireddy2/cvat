@@ -1,11 +1,8 @@
 name: Publish Docker images
 on:
-#   release:
-#     types: [published]
-  push:
-    branches:
-      - 'master'
-      - 'develop'
+  release:
+    types: [published]
+
 
 jobs:
   Unit_testing:
