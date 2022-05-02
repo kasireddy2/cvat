@@ -1,8 +1,11 @@
 name: Publish Docker images
 on:
-  release:
-    types: [published]
-
+  push:
+    branches:
+      - 'master'
+      - 'develop'
+  pull_request:
+    types: [edited, ready_for_review, opened, synchronize, reopened]
 
 jobs:
   Unit_testing:
@@ -66,8 +69,8 @@ jobs:
           username: lttsadas
           password: ko+UQHX89SK685XnmqrTmPyxCF1L/9J8 
       - run: |
-          docker tag "${{ secrets.REGISTRY_LOGIN_SERVER }}/PM:latest"
-          docker push yourACRname.azurecr.io/PM:latest                   
+          docker tag "lttsadas.azurecr.io/PM:latest"
+          docker push lttsadas.azurecr.io/PM:latest                   
 #       - name: Push to Docker Hub
 #         env:
 #           DOCKERHUB_WORKSPACE: 'openvino'
