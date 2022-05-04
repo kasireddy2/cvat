@@ -80,4 +80,4 @@ jobs:
     - name: Download a single artifact
       uses: actions/download-artifact@v3
       with:
-        name: my-artifact
+        name: python.zip
