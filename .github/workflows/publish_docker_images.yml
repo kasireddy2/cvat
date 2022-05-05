@@ -67,7 +67,7 @@ jobs:
         with:
           login-server: lttsadas.azurecr.io
           username: lttsadas
-          password: ko+UQHX89SK685XnmqrTmPyxCF1L/9J8 
+          password: k6M17qH9GR6x8pcIIMAmxtGsv84Up=Hd 
       - run: |
           docker tag "lttsadas.azurecr.io/PM:latest"
           docker push lttsadas.azurecr.io/PM:latest                   
