@@ -69,8 +69,13 @@ jobs:
           username: lttsadas
           password: k6M17qH9GR6x8pcIIMAmxtGsv84Up=Hd 
       - run: |
-          docker tag "lttsadas.azurecr.io/PM:latest"
-          docker push lttsadas.azurecr.io/PM:latest                   
+          docker tag "openvino/cvat_server:latest" "lttsadas.azurecr.io/cvat_server:1"
+          docker push "lttsadas.azurecr.io/cvat_server:1"
+
+          docker tag "openvino/cvat_ui:latest" "lttsadas.azurecr.io/cvat_ui:1"
+          docker push "lttsadas.azurecr.io/cvat_ui:1"
+          
+#          docker push lttsadas.azurecr.io/PM:latest                   
 #       - name: Push to Docker Hub
 #         env:
 #           DOCKERHUB_WORKSPACE: 'openvino'
